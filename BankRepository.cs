@@ -3,18 +3,28 @@ namespace bankproj
 {
     class BankRepository : IBankRepository
     {
+
+        class NotFound:ApplicationException
+        {
+            public NotFound(string message):base(message){}
+        }
         List<SBAccount> sBAccounts=new List<SBAccount>();
         List<SBTranaction> sBTranactions=new List<SBTranaction>();
         public void DepositAmount(int accno, int amt,int c)
         {
             foreach(SBAccount i in sBAccounts)
             {
+                if(amt>=0)
+                {
                 if(i.AccountNumber==accno)
                 {
                     i.CurrentBalance+=amt;
                     sBTranactions.Add(new SBTranaction(c,DateTime.Now,accno,i.CurrentBalance,"Deposit"));
                     break;
-                }
+                }}
+                else{
+                throw new NotFound("Deposit amount is less than 0");
+                    }
                 
             }
             
@@ -55,6 +65,7 @@ namespace bankproj
                 }
             }
             return t;
+            
         }
 
         public void NewAccount(SBAccount acc)
@@ -64,16 +75,22 @@ namespace bankproj
 
         public void WithdrawAmount(int accno, int amt,int c)
         {
+            
             foreach(SBAccount i in sBAccounts)
             {
                 if(i.AccountNumber==accno)
                 {
+                    if(i.CurrentBalance>=amt){
                     i.CurrentBalance-=amt;
                     sBTranactions.Add(new SBTranaction(c,DateTime.Now,accno,i.CurrentBalance,"Withdraw"));
-                    break;
+                    break;}
+                    else{
+                throw new NotFound("Insufficent Balance");
+                    }
                 }
                 
             }
+            
         }
     }
 }

@@ -30,21 +30,31 @@ namespace bankproj
                 }
                 if(x==3)
                 {
+                    try{
                     c++;
                     Console.WriteLine("Enter account number in which you want to deposit");
                     int d=Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Enter Amount you want to deposit");
                     int d1=Convert.ToInt32(Console.ReadLine());
-                    s.DepositAmount(d,d1,c);
+                    s.DepositAmount(d,d1,c);}
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
                 if(x==4)
                 {
+                    try{
                     c++;
                     Console.WriteLine("Enter account number in which you want to withdraw");
                     int d=Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Enter Amount you want to withdraw");
                     int d1=Convert.ToInt32(Console.ReadLine());
-                    s.WithdrawAmount(d,d1,c);
+                    s.WithdrawAmount(d,d1,c);}
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
                 if(x==5)
                 {

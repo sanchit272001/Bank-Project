@@ -12,3 +12,4 @@ D:\Fareportal\bankproj\obj\Debug\net8.0\refint\bankproj.dll
 D:\Fareportal\bankproj\obj\Debug\net8.0\bankproj.pdb
 D:\Fareportal\bankproj\obj\Debug\net8.0\bankproj.genruntimeconfig.cache
 D:\Fareportal\bankproj\obj\Debug\net8.0\ref\bankproj.dll
+D:\fareportal\bankproj\obj\Debug\net8.0\bankproj.sourcelink.json
